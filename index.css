@@ -1,6 +1,10 @@
 :root {
-    --background: #fdfdfd;
-    --primary: #aaa;
+    --background: #eeeeee;
+    --primary: #af54ff;
+    --primary-hover: #9771b8;
+    --secondary: #7438a5;
+    --dark-grey: #111111;
+    --grey: #181818;
 }
 
 *, *::before, *::after {
@@ -9,8 +13,90 @@
 }
 
 body {
-    background-size: 40px 40px;
-    background-image: linear-gradient(to bottom, rgb(221, 221, 221) 1px, transparent 1px);
+    background-color: var(--background);
     min-height: 100svh;
+    position: relative; 
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    position: absolute;
+    z-index: 999;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    backdrop-filter: blur(8px);
+}
+
+.header-logo {
+    max-width: 7rem;
+    user-select: none;
+}
+
+.hero {
+    height: 100svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
     position: relative;
+    overflow: hidden;
+    z-index: 1;
+    padding: 1.5rem;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 2000px;
+    aspect-ratio: 16 / 9; 
+    background-image: url('assets/hero-bg.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain; 
+    z-index: -1;
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+.hero-heading {
+    color: var(--dark-grey);
+    font-size: clamp(1.8rem, 4vw + 1rem, 3rem);
+    margin: 0;
+    text-align: center;
+}
+
+.hero-subheading {
+    color: var(--grey);
+    text-align: center;
+    font-size: 1rem;
+    max-width: 600px;
+    text-wrap: balance;
+    line-height: 2;
+    font-weight: 500;
+}
+
+.hero-cta {
+    background: var(--primary);
+    border-radius: 10px;
+    padding: 1.5rem 4rem;
+    text-decoration: none;
+    color: var(--background);
+    font-weight: 600;
+    user-select: none;
+    box-shadow: 0 10px var(--secondary);
+    transition: box-shadow 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+
+.hero-cta:active {
+    box-shadow: 0 5px var(--secondary);
+    transform: translateY(5px);
+    background: var(--primary-hover);
 }
