@@ -1,0 +1,16 @@
+:root {
+    --background: #fdfdfd;
+    --primary: #aaa;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    background-size: 40px 40px;
+    background-image: linear-gradient(to bottom, rgb(221, 221, 221) 1px, transparent 1px);
+    min-height: 100svh;
+    position: relative;
+}
